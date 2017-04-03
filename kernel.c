@@ -16,19 +16,24 @@ void clear()
 void showstring(char* message)
 {
 
-  	char *vidptr = (char*)0xb8000;
-  	 	//donde está la memoria de video
+  	char *vidptr = (char*)0xb8000;//donde está la memoria de video
 	unsigned int i = 0;
 	unsigned int j = 0;
 	
 	while(message[j] != '\0') {
-		if(str[ret]=='-')
+		if(message[j]=='-')
 		{
 			//salto de linea 
 		}
-		if(str[ret]='>')
+		if(message[j]='>')//Tab = 4 espacios vacios
 		{
-			//tab
+			vidptr[i] = ' ';
+			vidptr[i+2] = ' ';
+			vidptr[i+4] = ' ';
+			vidptr[i+6] = ' ';
+			j++;
+			i= i+8;
+		//creo que esta bien xD (a revisar y testear) ***
 		}
 
 		vidptr[i] = message[j];
@@ -41,7 +46,7 @@ void showstring(char* message)
 void main( void )
 {
 	int[] 
-    char *str = ">Tareabla->>Integrantes:->>>Cristobal->>>Manuel";
+    char *str = ">Tarea 1 Sistemas Operativos->>Integrantes:->>>Cristobal Caipillan->>>Manuel Martinez";
 	clear();
 	showstring(str);
  for(;;); /* Bucle para mantener el SO corriendo */
